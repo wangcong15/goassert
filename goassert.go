@@ -29,6 +29,15 @@ func AssertNEq(val1, val2 interface{}) {
 	}
 }
 
+func AssertValEq(val1, val2 interface{}) {
+	loss := allToFloat64(val1) - allToFloat64(val2)
+	if loss != 0 {
+		log.Printf("val1=%v\n", val1)
+		log.Printf("val2=%v\n", val2)
+		panic("NEq assertion fails.")
+	}
+}
+
 // AssertGt: check greater than
 func AssertGt(val1, val2 interface{}) float64 {
 	// checker and loss
