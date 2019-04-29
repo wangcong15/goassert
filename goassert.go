@@ -125,3 +125,11 @@ func AssertNEmpty(val1 []interface{}) int {
 	}
 	return length
 }
+
+// AssertNNil: check not nil
+func AssertNNil(val1 interface{}) {
+	// checker
+	if val1 == nil {
+		panic("AssertNNil assertion fails.")
+	}
+}
