@@ -142,3 +142,16 @@ func AssertNNil(val1 interface{}) {
 		panic("AssertNNil assertion fails.")
 	}
 }
+
+func AssertIntIn(val1 int, val2 []int) {
+	flag := 0
+	for _, i := range val2 {
+		if val1 == i {
+			flag = 1
+			break
+		}
+	}
+	if flag == 0 {
+		panic("AssertIntIn assertion fails.")
+	}
+}
