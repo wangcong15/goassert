@@ -3,6 +3,7 @@ package goassert
 import (
 	"log"
 	"reflect"
+	"strings"
 )
 
 var (
@@ -153,5 +154,17 @@ func AssertIntIn(val1 int, val2 []int) {
 	}
 	if flag == 0 {
 		panic("AssertIntIn assertion fails.")
+	}
+}
+
+func AssertStrIn(val1 string, val2 string) {
+	if strings.Contains(val2, val1) == false {
+		panic("AssertStrIn assertion fails.")
+	}
+}
+
+func AssertStrNotIn(val1 string, val2 string) {
+	if strings.Contains(val2, val1) == true {
+		panic("AssertStrNotIn assertion fails.")
 	}
 }
