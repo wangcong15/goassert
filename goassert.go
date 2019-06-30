@@ -182,3 +182,13 @@ func AssertUnderflow(val1, val2, val3 interface{}) {
 		panic("AssertUnderflow assertion fails")
 	}
 }
+
+func AssertPresion(val1, val2 interface{}) {
+	switch val1.(type) {
+	case float32, float64:
+		v1, v2 := allToFloat64(val1), allToFloat64(val2)
+		if v1-v2 < 0.0001 || v2-v1 < 0.0001 {
+			panic("AssertPresion assertion fails")
+		}
+	}
+}
