@@ -168,3 +168,17 @@ func AssertStrNotIn(val1 string, val2 string) {
 		panic("AssertStrNotIn assertion fails.")
 	}
 }
+
+func AssertOverflow(val1, val2, val3 interface{}) {
+	v1, v2, v3 := allToFloat64(val1), allToFloat64(val2), allToFloat64(val3)
+	if v1 >= 0 && v2 >= 0 && v3 < 0 || v1 <= 0 && v2 <= 0 && v3 > 0 {
+		panic("AssertOverflow assertion fails")
+	}
+}
+
+func AssertUnderflow(val1, val2, val3 interface{}) {
+	v1, v2, v3 := allToFloat64(val1), allToFloat64(val2), allToFloat64(val3)
+	if v1 <= 0 && v2 >= 0 && v3 > 0 || v1 >= 0 && v2 <= 0 && v3 < 0 {
+		panic("AssertUnderflow assertion fails")
+	}
+}
