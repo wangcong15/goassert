@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	debug_mode = true
+	debug_mode = false
 )
 
 // AssertEq: check equality
@@ -139,7 +139,7 @@ func AssertNEmpty(val1 []interface{}) int {
 // AssertNNil: check not nil
 func AssertNNil(val1 interface{}) {
 	// checker
-	if val1 == nil {
+	if val1 == nil || reflect.ValueOf(val1).IsNil() {
 		panic("AssertNNil assertion fails.")
 	}
 }
