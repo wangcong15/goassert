@@ -144,7 +144,7 @@ func AssertNNil(val1 interface{}) {
 	}
 }
 
-func AssertIntIn(val1 int, val2 []int) {
+func AssertIntIn(val1 int, val2 ...int) {
 	flag := 0
 	for _, i := range val2 {
 		if val1 == i {
